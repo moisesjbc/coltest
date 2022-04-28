@@ -6,10 +6,18 @@ Tested in *Ubuntu 18.04.4 LTS*
 
 ### Backend
 
-1. Build image
+1. Generate virtual env
 
-        docker build -t coltest-backend:0.1 docker/backend
+        python3 -m venv backend/virtual-env
 
-2. Run image
+2. Activate previous virtual env
 
-        docker run -it coltest-backend:0.1 bash
+        source backend/virtual-env/bin/activate
+
+3. Install requirements
+
+        pip install -r backend/requirements.txt
+
+4. Run server
+
+        python3 backend/backend/main.py
