@@ -1,11 +1,24 @@
-import tornado
+from tornado.web import RequestHandler
 import json
 
 
-class LoginHandler(tornado.web.RequestHandler):
+class LoginHandler(RequestHandler):
     def put(self):
-        data = json.loads(self.request.body)
-        self.write({
-            "username": data['username'],
-            "password": data['password']
-        })
+        try:
+            data = json.loads(self.request.body)
+            if data["username"] == "Admin" and data["password"] == "Admin-1234":
+                self.write({
+                    "token": "new-token"
+                })
+            else:
+                self.clear()
+                self.set_status(401)
+                self.finish({
+                    "cause": "Invalid username or password"
+                })
+        except json.decoder.JSONDecodeError:
+            self.clear()
+            self.set_status(400)
+            self.finish({
+                "cause": "Invalid JSON"
+            })

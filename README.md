@@ -21,3 +21,9 @@ Tested in *Ubuntu 18.04.4 LTS*
 4. Run server
 
         python3 backend/backend/main.py
+
+## Testing
+
+### Backend
+
+        nosetests backend
