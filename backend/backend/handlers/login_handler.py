@@ -1,5 +1,6 @@
 from tornado.web import RequestHandler
 import json
+from backend.authentication.authentication import Authentication
 
 
 class LoginHandler(RequestHandler):
@@ -8,7 +9,7 @@ class LoginHandler(RequestHandler):
             data = json.loads(self.request.body)
             if data["username"] == "Admin" and data["password"] == "Admin-1234":
                 self.write({
-                    "token": "new-token"
+                    "token": Authentication().generate_token(data)
                 })
             else:
                 self.clear()
