@@ -37,3 +37,7 @@ Tested in *Ubuntu 18.04.4 LTS*
 ### Backend
 
         nosetests backend
+
+### Frontend
+
+        (cd client/ && npm run test)
