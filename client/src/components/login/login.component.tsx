@@ -1,9 +1,21 @@
 import React from 'react';
 
-const LoginComponent = (): JSX.Element => {
+const Login = (): JSX.Element => {
     return (
-        <p>TODO - Fill me</p>
+        <form>
+            <label>
+                Username:
+                <input name="username" type="text" />
+            </label>
+
+            <label>
+                Password:
+                <input name="password" type="password" />
+            </label>
+
+            <button type="submit">Submit</button>
+        </form>
     );
 }
 
-export default LoginComponent;
+export default Login;
